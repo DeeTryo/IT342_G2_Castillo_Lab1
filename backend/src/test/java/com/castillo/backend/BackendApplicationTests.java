@@ -1,10 +1,10 @@
-package com.castillo.userauth;
+package com.castillo.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserauthApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {
