@@ -33,7 +33,7 @@ const LoginPage = () => {
         } catch (error) {
             // Handles HTTP 401 (Unauthorized) or connection errors
             if (error.response && error.response.status === 401) {
-                setErrorMessage("Invalid username or password.");
+                setErrorMessage("Invalid email or password.");
             } else {
                 setErrorMessage("Something went wrong. Is the backend running?");
             }
@@ -50,11 +50,11 @@ const LoginPage = () => {
 
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label>Username</label>
+                        <label>Email</label>
                         <input 
                             type="text" 
-                            name="username" 
-                            value={formData.username}
+                            name="email" 
+                            value={formData.email}
                             onChange={handleChange} 
                             required 
                         />

@@ -9,7 +9,7 @@ const LandingPage = () => {
         <div className="logo">MyApp</div>
         <nav>
             {/* Top right navigation */}
-            <Link to="/login" className="nav-link">Log In</Link>
+            <Link to="/login" className="btn btn-primary">Log In</Link>
             <Link to="/register" className="btn btn-primary">Get Started</Link>
         </nav>
       </header>

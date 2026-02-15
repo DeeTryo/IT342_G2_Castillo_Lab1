@@ -7,11 +7,11 @@ const Dashboard = () => {
     const username = "User"; 
 
     const handleLogout = () => {
-        // 1. Clear any stored tokens (if you had them)
+        // 1. Clear any stored tokens
         localStorage.removeItem('token'); 
-        
-        // 2. Redirect to Login or Landing page
-        navigate('/login'); 
+
+        // 2. Redirect to Landing page
+        navigate('/'); 
     };
 
     return (
@@ -34,21 +34,6 @@ const Dashboard = () => {
                 <header>
                     <h1>Welcome back, {username}!</h1>
                 </header>
-                
-                <div className="stats-grid">
-                    <div className="card">
-                        <h3>Status</h3>
-                        <p>Active</p>
-                    </div>
-                    <div className="card">
-                        <h3>Messages</h3>
-                        <p>0 New</p>
-                    </div>
-                    <div className="card">
-                        <h3>Pending Tasks</h3>
-                        <p>None</p>
-                    </div>
-                </div>
 
                 <div className="content-area">
                     <h2>Recent Activity</h2>
