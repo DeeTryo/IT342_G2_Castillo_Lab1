@@ -32,7 +32,7 @@ const LandingPage = () => {
       </main>
 
       <footer className="landing-footer">
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        <p>&copy; 2026 My App. All rights reserved.</p>
       </footer>
     </div>
   );

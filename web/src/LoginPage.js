@@ -5,7 +5,7 @@ import './css/LoginPage.css';
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({
-        username: '',
+        email: '',
         password: ''
     });
     const [errorMessage, setErrorMessage] = useState('');
@@ -23,11 +23,9 @@ const LoginPage = () => {
             // Sends data to your Spring Boot Backend
             const response = await axios.post('http://localhost:8080/api/auth/login', formData);
 
-            // If successful (HTTP 200), redirect the user
+            // If successful (HTTP 200), store user data and redirect
             console.log("Login Success:", response.data);
-            
-            // TODO: If your backend sends a JWT token later, save it here:
-            // localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user', JSON.stringify(response.data)); // Store user data
 
             navigate('/dashboard'); // Redirects to the dashboard
         } catch (error) {

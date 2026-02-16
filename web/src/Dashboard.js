@@ -1,38 +1,42 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Sidebar from './Sidebar';
 import './css/Dashboard.css';
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const username = "User"; 
+    const [firstName, setFirstName] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
-    const handleLogout = () => {
-        // 1. Clear any stored tokens
-        localStorage.removeItem('token'); 
+    useEffect(() => {
+        // Retrieve user data from localStorage
+        const userData = localStorage.getItem('user');
+        if (userData) {
+            try {
+                const user = JSON.parse(userData);
+                setFirstName(user.firstName);
+            } catch (error) {
+                console.error('Error parsing user data:', error);
+                navigate('/login');
+            }
+        } else {
+            // No user data, redirect to login
+            navigate('/login');
+        }
+        setIsLoading(false);
+    }, [navigate]);
 
-        // 2. Redirect to Landing page
-        navigate('/'); 
-    };
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="dashboard-container">
-            <aside className="sidebar">
-                <h2>MyApp</h2>
-                <nav>
-                    <ul>
-                        <li className="active">Overview</li>
-                        <li>Settings</li>
-                        <li>Profile</li>
-                    </ul>
-                </nav>
-                <button onClick={handleLogout} className="logout-btn">
-                    Log Out
-                </button>
-            </aside>
+            <Sidebar currentPage="dashboard" />
 
             <main className="main-content">
                 <header>
-                    <h1>Welcome back, {username}!</h1>
+                    <h1>Welcome! {firstName}</h1>
                 </header>
 
                 <div className="content-area">

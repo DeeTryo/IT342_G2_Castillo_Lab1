@@ -13,8 +13,9 @@ import java.time.LocalDateTime;
 public class User {
 
     @Id
+    @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long user_id;
 
     @Column(unique = true, nullable = false)
     private String email;
@@ -35,8 +36,8 @@ public class User {
     @Column(name = "last_login")
     private LocalDateTime last_login;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getUser_id() { return user_id; }
+    public void setUser_id(Long user_id) { this.user_id = user_id; }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
     public String getPassword() { return password; }
@@ -48,5 +49,5 @@ public class User {
     public LocalDateTime getCreated_at() { return created_at; }
     public LocalDateTime getLast_login() { return last_login; }
     public void setLast_login(LocalDateTime last_login) { this.last_login = last_login; }
-    
+
 }

@@ -5,9 +5,7 @@
     background-color: #f4f7f6;
 }
 
-h2{
-    color: #ffffff;
-}
+
 
 /* Sidebar Styles */
 .sidebar {
@@ -21,6 +19,7 @@ h2{
 
 .sidebar h2 {
     text-align: center;
+    color: #ffffff;
     margin-bottom: 2rem;
 }
 
@@ -30,18 +29,28 @@ h2{
 }
 
 .sidebar li {
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
+    padding: 0;
     margin-bottom: 5px;
+    border-radius: 5px;
 }
 
-.sidebar li:hover {
+.sidebar li a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar li a:hover {
     background-color: #34495e;
 }
 
-.sidebar li.active {
+.sidebar li.active a {
     background-color: #3498db;
+    font-weight: 600;
 }
 
 .logout-btn {

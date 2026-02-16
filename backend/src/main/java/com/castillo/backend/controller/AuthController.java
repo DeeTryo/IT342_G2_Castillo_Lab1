@@ -49,7 +49,7 @@ public class AuthController {
 
     // --- LOGIN ---
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AuthRequest request) {
+    public ResponseEntity<User> login(@RequestBody AuthRequest request) {
         Optional<User> userOptional = userRepository.findByEmail(request.email);
 
         if (userOptional.isPresent()) {
@@ -57,10 +57,10 @@ public class AuthController {
             if (passwordEncoder.matches(request.password, user.getPassword())) {
                 user.setLast_login(java.time.LocalDateTime.now());
                 userRepository.save(user);
-                return ResponseEntity.ok("Login Successful");
+                return ResponseEntity.ok(user); // Return full User object with firstName, lastName, etc.
             }
         }
         
-        return ResponseEntity.status(401).body("Invalid email or password");
+        return ResponseEntity.status(401).body(null);
     }
 }
