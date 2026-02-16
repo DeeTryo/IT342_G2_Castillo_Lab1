@@ -26,6 +26,8 @@ public class AuthController {
     public static class AuthRequest {
         public String email;
         public String password;
+        public String firstName;
+        public String lastName;
     }
 
     // --- REGISTER ---
@@ -38,6 +40,8 @@ public class AuthController {
         User newUser = new User();
         newUser.setEmail(request.email);
         newUser.setPassword(passwordEncoder.encode(request.password)); // Hash it!
+        newUser.setFirstName(request.firstName);
+        newUser.setLastName(request.lastName);
 
         userRepository.save(newUser);
         return ResponseEntity.ok("User registered successfully");
@@ -51,6 +55,8 @@ public class AuthController {
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             if (passwordEncoder.matches(request.password, user.getPassword())) {
+                user.setLast_login(java.time.LocalDateTime.now());
+                userRepository.save(user);
                 return ResponseEntity.ok("Login Successful");
             }
         }

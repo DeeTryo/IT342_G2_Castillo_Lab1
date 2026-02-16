@@ -6,7 +6,9 @@ import './css/RegisterPage.css';
 const RegisterPage = () => {
     const [formData, setFormData] = useState({
         email: '',
-        password: ''
+        password: '',
+        firstName: '',
+        lastName: ''
     });
     
     const navigate = useNavigate();
@@ -40,6 +42,31 @@ const RegisterPage = () => {
                 <p className="sub-text">Join us to manage your data securely.</p>
                 
                 <form onSubmit={handleSubmit}>
+
+                    <div className="form-group">
+                        <label>First Name</label>
+                        <input 
+                            type="text" 
+                            name="firstName" 
+                            placeholder="Enter your first name"
+                            value={formData.firstName}
+                            onChange={handleChange} 
+                            required 
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Last Name</label>
+                        <input 
+                            type="text" 
+                            name="lastName" 
+                            placeholder="Enter your last name"
+                            value={formData.lastName}
+                            onChange={handleChange} 
+                            required 
+                        />
+                    </div>
+
                     <div className="form-group">
                         <label>Email Address</label>
                         <input 
