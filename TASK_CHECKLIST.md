@@ -1,12 +1,13 @@
 # IT342_G5_Lab1 Task Checklist
  
 ## DONE
-- [x] Initialize Repository Structure
-- [x] Backend: Setup Spring Boot and connect MySQL
-- [x] Web: Create React pages for Login and Register and Dashboard
+- [x] Initialize Repository Structure   #6fd0093
+- [x] Backend: Setup Spring Boot and connect to database  #bf79d6d
+- [x] Web: Create React pages for Login and Register and Dashboard  #dece947
+- [x] Web: Create React pages for Profile   #dece947
+- [x] Backend: Implement Register endpoint with BCrypt  #af76563
+- [x] Web: Make Dashboard protected and Implement Logout    #dece947
+- [x] Android: initialize Android Studio project    #7c1f10c
  
 ## TODO
-- [ ] Backend: Implement Register endpoint with BCrypt
-- [ ] Backend: Implement Login endpoint with JWT
-- [ ] Web: Make Dashboard protected and Implement Logout
 - [ ] Docs: Finalize FRS PDF with UML Diagrams
